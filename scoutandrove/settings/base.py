@@ -171,7 +171,8 @@ INSTALLED_APPS = (
     # #'raven.contrib.django.raven_compat',
 
     'scoutandrove.apps.account',
-    'scoutandrove.apps.sr'
+    'scoutandrove.apps.sr',
+    'scoutandrove.modules.sr_crawl'
 
 )
 
@@ -188,8 +189,8 @@ APPEND_SLASH = True
 #==============================================================================
 AWS_ACCESS_KEY_ID       = env.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY   = env.get("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME = env.get("AWS_STORAGE_BUCKET_NAME", 'scoutandrove-media')
-AWS_STORAGE_BUCKET_NAME_MEDIA = env.get("AWS_STORAGE_BUCKET_NAME_MEDIA", 'scoutandrove-media')
+AWS_STORAGE_BUCKET_NAME = env.get("AWS_STORAGE_BUCKET_NAME", 'scoutandrove')
+AWS_STORAGE_BUCKET_NAME_MEDIA = env.get("AWS_STORAGE_BUCKET_NAME_MEDIA", 'scoutandrove')
 
 
 AWS_STATIC_FOLDER = 'static'
@@ -197,7 +198,7 @@ AWS_MEDIA_FOLDER = 'media'
 AWS_S3_CUSTOM_DOMAIN    = '%s.s3.amazonaws.com'%(AWS_STORAGE_BUCKET_NAME)
 AWS_S3_CUSTOM_DOMAIN_MEDIA    = '%s.s3.amazonaws.com'%(AWS_STORAGE_BUCKET_NAME_MEDIA)
 
-AWS_STORAGE_BUCKET_NAME_MEDIA_SECURE = 'scoutandrove-media-secure'
+AWS_STORAGE_BUCKET_NAME_MEDIA_SECURE = '%s-secure'%(AWS_STORAGE_BUCKET_NAME)
 AWS_S3_CUSTOM_DOMAIN_MEDIA_SECURE    = '%s.s3.amazonaws.com'%(AWS_STORAGE_BUCKET_NAME_MEDIA_SECURE)
 
 
@@ -449,7 +450,7 @@ EMAIL = {
 #==============================================================================
 # DJANGO MODEL SETTINGS
 #==============================================================================
-SR_TEST_MODEL = 'sr.Test'
+
 SR_SITE_PROFILE_MODEL = 'sr.SiteProfile'
 SR_TEST_RESULT_SET_MODEL = 'sr.TestResultSet'
 
